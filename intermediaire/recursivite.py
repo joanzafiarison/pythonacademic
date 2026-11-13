@@ -48,9 +48,27 @@ def U(n:int, u0 : int) -> float :
 
 
 
-#TODO PGCD récursive 180& 100 
+#TODO PGCD récursive 180& 100 = 20
 def PGCD(nombre1 : int, nombre2 : int) -> int :
-    pass
+    a = nombre1 
+    b = nombre2
+
+    if  nombre2 > nombre1 :
+        a = nombre2
+        b = nombre1
+    q : int = a//b
+    r : int = a % b
+
+    if r == 0:
+        #print(b)
+        return b
+
+    else :
+        a = b 
+        b = r
+        return PGCD (a,b)
+
+    
 
 
 from intermediaire.bases_decimales import convert_base, hexaToDecimal , binaryToDecimal
@@ -83,8 +101,12 @@ def base_change(nombre : str, base1 : int ,base2 : int) -> str :
     return res
 
 #print(base_change("20",10,2))
+print(PGCD(180,100))#20
+print(PGCD(12,18))#20
+
 
 if __name__ == "main" :
+    print(PGCD(180,100))#20
     #affiche_rec(2020,2022)
     #print(f"factorielle de {n} : ",factoriel_rec(n))
 
